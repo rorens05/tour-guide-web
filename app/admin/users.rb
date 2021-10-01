@@ -98,7 +98,10 @@ ActiveAdmin.register User do
   show do
     panel user.name do
       tabs do
-        tab 'General' do
+        tab 'Summary' do
+          render 'admin/charts/summary', user: user
+        end
+        tab 'General Information' do
           columns do
             column span: 3 do
               attributes_table_for user do

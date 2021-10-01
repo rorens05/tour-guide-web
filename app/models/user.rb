@@ -8,6 +8,8 @@ class User < ApplicationRecord
   belongs_to :region
   belongs_to :province
   belongs_to :city
+  has_many :accounts, dependent: :destroy
+  has_many :transactions, through: :accounts
 
   has_one_attached :image
   before_validation :generate_confirmation_token

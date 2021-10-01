@@ -9,6 +9,7 @@ require("@rails/activestorage").start()
 require("channels")
 import "bootstrap"
 import $ from 'jquery'; 
+import "chartkick/chart.js"
 
 document.addEventListener("turbolinks:load", $(function () {
     $('[data-toggle="popover"]').popover()

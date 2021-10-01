@@ -1,0 +1,10 @@
+incomes = transactions.incomes.completed.joins(:category).group('categories.name').sum(:amount)
+expenses = transactions.expenses.completed.joins(:category).group('categories.name').sum(:amount)
+
+# render
+div class: 'chart-container' do
+  h2 "Expenses #{format_currency transactions.expenses.sum(:amount)}", class: 'text-center m-0'
+  div do
+    bar_chart expenses, donut: true
+  end
+end

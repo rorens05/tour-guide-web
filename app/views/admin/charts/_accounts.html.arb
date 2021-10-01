@@ -1,0 +1,20 @@
+accounts = user.accounts.joins(:bank).group('banks.name').sum(:amount)
+incomes = user.transactions.incomes.completed.joins(:category).group('categories.name').sum(:amount)
+
+# render
+div class: 'chart-container' do
+  columns do
+    column do
+      h2 "Current accounts: #{format_currency user.accounts.sum(:amount)}", class: 'text-center m-0'
+      div do
+        pie_chart accounts, donut: true, download: true
+      end
+    end
+    column do
+      h2 "Income Sources #{format_currency user.transactions.incomes.sum(:amount)}", class: 'text-center m-0'
+      div do
+        pie_chart incomes, donut: true
+      end
+    end
+  end  
+end

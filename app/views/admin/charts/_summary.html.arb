@@ -1,0 +1,2 @@
+render 'admin/charts/accounts', user: user
+render 'admin/charts/income_and_expenses', transactions: user.transactions

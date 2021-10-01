@@ -5,6 +5,8 @@
 //= require jquery
 //= require jquery_ujs
 //= require game_timer
+//= require chartkick
+//= require Chart.bundle
 
 jQuery(function() { 
   $("#quiz_game_status, #quiz_game_city_id, #quiz_game_sponsor_id, #quiz_game_radio_station_id").select2({

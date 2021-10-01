@@ -1,14 +1,10 @@
-// ActiveMaterial
-
-// @import "active_admin/mixins";
-// @import "arctic_admin/base";
-$primary-color: #00b5fd;
-$filter-field-seperator-width: auto;
-$side-by-side-filter-input-width: auto;
+@import "components/constants"; 
+@import "components/switch"; 
+@import "components/reusables"; 
+@import "components/admin"; 
 @import "arctic_admin/base"; 
 @import "select2";
 @import "select2-bootstrap";
-@import "switch"; 
 @import "active_admin_datetimepicker";
 
 
@@ -216,3 +212,4 @@ $side-by-side-filter-input-width: auto;
     }
   }
 }
+

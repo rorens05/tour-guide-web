@@ -24,7 +24,6 @@ ActiveAdmin.register Transaction do
     column :amount do |transaction|
       format_currency(transaction.amount)
     end
-   
 
     column :type, sortable: "categories.transaction_type" do |transaction|
       status_tag transaction.category.transaction_type
@@ -33,6 +32,7 @@ ActiveAdmin.register Transaction do
     column :status do |transaction|
       status_tag transaction.status
     end
+    column :created_at
     
     actions
   end 
