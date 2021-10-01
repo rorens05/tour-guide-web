@@ -13,10 +13,10 @@ $side-by-side-filter-input-width: auto;
 
 
 .status_tag{
-  &.active, &.verified, &.online, &.ready{
+  &.active, &.verified, &.online, &.ready, &.income{
     background-color: green;
   }
-  &.inactive, &.unverified, &.google{
+  &.inactive, &.unverified, &.google, &.expense{
     background-color: red;
   }
   &.in_progress{
