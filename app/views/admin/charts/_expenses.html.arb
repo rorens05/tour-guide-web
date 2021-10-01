@@ -1,0 +1,22 @@
+incomes = transactions.incomes.completed.joins(:category).group('categories.name').sum(:amount)
+expenses = transactions.expenses.completed.joins(:category).group('categories.name').sum(:amount)
+
+# render
+div class: 'chart-container' do
+  h2 "Expenses #{format_currency transactions.expenses.sum(:amount)}", class: 'text-center m-0'
+  div do
+    bar_chart expenses, donut: true
+  end
+end
+
+div class: 'chart-container' do
+  h2 "Daily Transactions", class: 'text-center m-0'
+  div do
+    line_chart transactions
+                .joins(:category)
+                .group('categories.transaction_type')
+                .group_by_day('transactions.created_at')
+                .sum(:amount)
+                .transform_keys { |key| [Category.transaction_types.keys[key.first].capitalize, key.last]}
+  end
+end
