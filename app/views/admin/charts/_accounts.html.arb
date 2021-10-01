@@ -1,4 +1,4 @@
-accounts = user.accounts.joins(:bank).group('banks.name').sum(:amount)
+accounts = user.accounts.group('name').sum(:amount)
 incomes = user.transactions.incomes.completed.joins(:category).group('categories.name').sum(:amount)
 
 # render
