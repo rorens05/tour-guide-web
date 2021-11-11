@@ -61,6 +61,12 @@ Rails.application.routes.draw do
   get 'confirm_email/:token', to: 'email_handler#confirm_email'
 
   namespace :api do
+    namespace :v1 do
+      get 'auth/connection_test'
+      post 'auth/login'
+      post 'auth/register'
+      get 'auth/profile'
+    end
     namespace :v2 do
       get 'auth/connection_test'
       post 'auth/login'
