@@ -32,7 +32,7 @@ class Api::V1::AuthController < Api::V1::ApiController
         user.image = base64_to_file(params[:image])
         user.save
       end
-      UserNotifierMailer.send_confirmation_email(user).deliver
+      # UserNotifierMailer.send_confirmation_email(user).deliver
       handle_valid_credential(user)
       
     else

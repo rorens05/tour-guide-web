@@ -66,6 +66,12 @@ Rails.application.routes.draw do
       post 'auth/login'
       post 'auth/register'
       get 'auth/profile'
+      resources :products, only: [:index, :show]
+      resources :carts, only: [:index, :create, :destroy] do 
+        collection do
+          delete :destory_all
+        end
+      end
     end
     namespace :v2 do
       get 'auth/connection_test'

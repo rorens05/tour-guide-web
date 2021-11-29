@@ -1,5 +1,5 @@
 ActiveAdmin.register User do
-  menu parent: 'Users', label: "End Users"
+  menu label: 'Customer', priority: 3
 
   permit_params :email, 
                 :username, 

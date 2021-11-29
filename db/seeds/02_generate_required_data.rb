@@ -19,6 +19,7 @@ user = User.new(
   city_id: 1594,
   last_name: "Bautista",
   login_type: "Email",
+  password: 'Password@123'
 
 )
 
