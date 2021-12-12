@@ -98,9 +98,7 @@ ActiveAdmin.register User do
   show do
     panel user.name do
       tabs do
-        tab 'Summary' do
-          render 'admin/charts/summary', user: user
-        end
+        
         tab 'General Information' do
           columns do
             column span: 3 do
@@ -147,24 +145,11 @@ ActiveAdmin.register User do
             end
           end
         end
-        tab 'Login Information' do
-          attributes_table_for user do
-            row :token do 
-              span user.token 
-              br
-              a "Logout", href: logged_out_admin_user_path(user.id), "data-method": :post, rel: 'nofollow', class: 'text-success'
-            end
-            row :last_login
-            row :manufacturer
-            row :device_id
-            row :device_name
-            row :brand
-            row :ip_address
-            row :model
-            row :mac_address
-            row :carrier
-            row :system_version
-          end
+        tab "Carts" do
+          render 'carts', carts: resource.carts
+        end
+        tab "Order History" do
+
         end
       end
     end

@@ -1,0 +1,5 @@
+table_for carts do
+  column "Item", :product
+  column :quantity, class: ' pr-3'
+  column "Added at", :created_at 
+end

@@ -11,6 +11,7 @@ class User < ApplicationRecord
   has_many :accounts, dependent: :destroy
   has_many :transactions, through: :accounts
   has_many :carts, dependent: :destroy
+  has_many :orders, dependent: :destroy
 
   has_one_attached :image
   before_validation :generate_confirmation_token

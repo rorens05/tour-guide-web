@@ -1,13 +1,13 @@
 ActiveAdmin.register Product do
   menu label: 'Products', priority: 4
 
-  permit_params :name, :description, :price, :image
+  permit_params :name, :description, :price, :image, :category
 
   form do |f|  
     f.semantic_errors *f.object.errors.keys
     f.input :image, as: :file
-
     f.input :name
+    f.input :category
     f.input :description, input_html: {rows: 2}
     f.input :price
     f.actions
@@ -19,6 +19,7 @@ ActiveAdmin.register Product do
         column span: 4 do
           attributes_table_for resource do
             row :name
+            row :category
             row :description
             row :price do 
               format_currency resource.price
