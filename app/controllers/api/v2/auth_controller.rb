@@ -41,7 +41,7 @@ class Api::V2::AuthController < Api::V2::ApiController
       handle_valid_credential(user)
     else
       user = User.new(
-        email: result['email'] || "#{DateTime.now.to_i}#{Faker::Alphanumeric.alphanumeric(number: 3)}@rorens.app",
+        email: result['email'] || "#{DateTime.now.to_i}#{Faker::Alphanumeric.alphanumeric(number: 3)}@Thesis.app",
         first_name: result["first_name"],
         last_name: result["last_name"],
         gender: "Undisclosed",

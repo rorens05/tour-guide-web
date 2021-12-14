@@ -71,7 +71,7 @@ Rails.application.configure do
     domain: 'mbcradio.net',
     authentication: 'plain',
     tls: false,
-    user_name: 'no-reply@rorens.com',
+    user_name: 'no-reply@Thesis.com',
     password: '9fqW5q6GCK2KMtN',
     enable_starttls_auto: false
   }

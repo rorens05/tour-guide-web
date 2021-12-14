@@ -35,8 +35,15 @@ ActiveAdmin.register Order do
         row :note
       end
     end
+    br
     panel "Orders" do
-      
+      table_for resource.order_items do
+        column :product
+        column :quantity
+        column :price do |item|
+          format_currency item.price
+        end
+      end
     end
   end
 

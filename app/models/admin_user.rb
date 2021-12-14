@@ -16,6 +16,7 @@ class AdminUser < ApplicationRecord
   scope :djs, -> { where(:role => "DJ")}
   # Ex:- scope :active, -> {where(:active => true)}
 
+  
 
   def image_path
     return Rails.application.routes.url_helpers.rails_blob_path(image, only_path: true) if image.attached?

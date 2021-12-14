@@ -1,8 +1,8 @@
 user = User.new(
   id: 1,
-  email: "rorens05@gmail.com",
+  email: "Thesis05@gmail.com",
   encrypted_password: "$2a$12$OuyDJyImyNertCOOpy8BgevZpfdS5ijHOuoq/dmEDyu9Mgy.ob4jS",
-  username: "admin@rorens.com",
+  username: "admin@Thesis.com",
   contact_number: "09672854197",
   first_name: "Laurence",
   gender: "Male",
