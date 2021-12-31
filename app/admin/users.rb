@@ -50,26 +50,7 @@ ActiveAdmin.register User do
       user.name
     end
     column :gender
-    column :online_status do |user|
-      if user.online_status == "Online"
-        status_tag user.online_status
-      else
-        if user.last_online.present?
-          span "Last online: #{format_date user.last_online} #{format_time user.last_online}"
-        else
-          status_tag user.online_status
-        end
-      end
-    end
-    column :login_type do |user|
-      status_tag user.login_type
-    end
-    column :verified do |user|
-      status_tag user.verified?
-    end
-    column :status do |user|
-      status_tag user.status
-    end
+   
     actions
   end   
   
@@ -81,7 +62,6 @@ ActiveAdmin.register User do
     f.input :contact_number
     f.input :first_name
     f.input :last_name
-    f.input :email
     f.input :country, as: :string
     f.input :gender
     f.input :region
