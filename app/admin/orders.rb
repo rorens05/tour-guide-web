@@ -1,4 +1,5 @@
 ActiveAdmin.register Order do
+  menu false
   actions :all, except: [:new]
 
   permit_params :user_id, :delivery_address, :land_mark, :note, :payment_method, :status, :contact_number

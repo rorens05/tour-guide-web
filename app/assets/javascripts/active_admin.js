@@ -22,6 +22,7 @@ jQuery(function() {
   $("#roulette_dj_id").select2()
   $("#roulette_sponsor_id").select2()
   $("#roulette_city_ids").select2()
+  $("#product_place_id").select2()
 })
 
 
@@ -55,11 +56,11 @@ const initLoginPageStyles = () => {
   if(window.location.pathname === '/admin/login'){
     console.log("Login styles have been loaded")
     const loginLabel = document.querySelector("#login h2")
-    loginLabel.innerHTML = `<img src="/images/logo-main.png"/>`
+    loginLabel.innerHTML = `<img src="/images/icon.png" style="width: 80px; height: 80px"/>`
     const loginPageBackground = document.querySelector("#active_admin_content")
     const contentWrapper = document.querySelector("#content_wrapper")
     
-    loginPageBackground.style.backgroundImage = 'linear-gradient(gray, green)'
+    loginPageBackground.style.backgroundImage = 'linear-gradient(gray, #429FB9)'
     loginPageBackground.style.opacity = 0.95;
     contentWrapper.style.backgroundImage = "url('/images/banner1.jpg')"
     contentWrapper.style.backgroundRepeat = "no-repeat"
@@ -73,7 +74,7 @@ const initDashboardStyles = () => {
   if(headerH2 !== null) {
       
     console.log({headerH2})
-    headerH2.innerHTML = `<img src="/images/logo-main.png"/>`
+    headerH2.innerHTML = `<img src="/images/icon.png"/>`
     headerH2.querySelector("img").style.width = "50px"
     headerH2.querySelector("img").style.marginTop = "5px"
   }

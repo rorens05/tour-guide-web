@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_12_12_085528) do
+ActiveRecord::Schema.define(version: 2022_01_01_083620) do
 
   create_table "accounts", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "name"
@@ -141,6 +141,26 @@ ActiveRecord::Schema.define(version: 2021_12_12_085528) do
     t.index ["user_id"], name: "index_orders_on_user_id"
   end
 
+  create_table "place_categories", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.string "name"
+    t.integer "status", default: 0
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "places", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.string "name"
+    t.text "description"
+    t.bigint "place_category_id", null: false
+    t.integer "status"
+    t.string "latlong"
+    t.string "website"
+    t.string "contact_number"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["place_category_id"], name: "index_places_on_place_category_id"
+  end
+
   create_table "products", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "name"
     t.text "description"
@@ -148,6 +168,7 @@ ActiveRecord::Schema.define(version: 2021_12_12_085528) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.integer "category"
+    t.integer "place_id"
   end
 
   create_table "provinces", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
@@ -164,6 +185,18 @@ ActiveRecord::Schema.define(version: 2021_12_12_085528) do
     t.string "code"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "reviews", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.integer "rating"
+    t.text "content"
+    t.bigint "user_id"
+    t.string "entity_type"
+    t.bigint "entity_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["entity_type", "entity_id"], name: "index_reviews_on_entity_type_and_entity_id"
+    t.index ["user_id"], name: "index_reviews_on_user_id"
   end
 
   create_table "transactions", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
@@ -236,6 +269,7 @@ ActiveRecord::Schema.define(version: 2021_12_12_085528) do
   add_foreign_key "order_items", "orders"
   add_foreign_key "order_items", "products"
   add_foreign_key "orders", "users"
+  add_foreign_key "places", "place_categories"
   add_foreign_key "provinces", "regions"
   add_foreign_key "transactions", "accounts"
   add_foreign_key "transactions", "categories"

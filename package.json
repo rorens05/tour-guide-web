@@ -1,5 +1,5 @@
 {
-  "name":"psu_thesis04_plant_marketplace",
+  "name":"psu_thesis06_tour_guide",
   "private": true,
   "dependencies": {
     "@babel/preset-react": "^7.12.7",

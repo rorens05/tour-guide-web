@@ -13,6 +13,8 @@ class User < ApplicationRecord
   has_many :carts, dependent: :destroy
   has_many :orders, dependent: :destroy
 
+  has_many :reviews, dependent: :destroy
+
   has_one_attached :image
   before_validation :generate_confirmation_token
 

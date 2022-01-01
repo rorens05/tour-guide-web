@@ -73,6 +73,11 @@ Rails.application.routes.draw do
           delete :destory_all
         end
       end
+      resources :place_categories, only: [:index] do
+        collection do
+          get 'place/:id' => 'place_categories#place'
+        end
+      end
 
     end
 
