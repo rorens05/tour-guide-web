@@ -76,6 +76,7 @@ Rails.application.routes.draw do
       resources :place_categories, only: [:index] do
         collection do
           get 'place/:id' => 'place_categories#place'
+          post 'place/:id/update_review' => 'place_categories#update_review'
         end
       end
 

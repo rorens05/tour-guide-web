@@ -15,7 +15,6 @@ class Api::V1::PlaceCategoriesController < Api::V1::ApiController
         :place_category, {
           products: {
             methods: :image_path,
-            
           }
         },
         reviews: {
@@ -29,5 +28,13 @@ class Api::V1::PlaceCategoriesController < Api::V1::ApiController
         }
       ]
     )
+  end
+
+  def update_review
+    review = Review.find_or_create_by(user_id: session_user.id, entity_type: 'Place', entity_id: params[:id])
+    review.update(rating: params[:rating])
+    review.update(content: params[:content])
+    review.save
+    render json: { review: review, message: 'Review updated' }
   end
 end

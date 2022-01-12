@@ -21,6 +21,7 @@ ActiveAdmin.register Product do
     f.input :place
     f.input :name
     f.input :description, input_html: {rows: 2}
+    f.rich_text_area :content
     f.input :price
     f.actions
   end

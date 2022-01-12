@@ -25,31 +25,49 @@ ActiveAdmin.register Place do
     f.actions
   end
   
-  show do 
-    panel "General Information" do
-      columns do 
-        column span: 3 do 
-          attributes_table_for place do
-            row :id
-            row :name
-            row :description
-            row :place_category
-            row :status do 
-              status_tag place.status
+  show do
+    panel "" do
+      tabs do
+        tab "General Information" do
+          columns do 
+            column span: 3 do 
+              attributes_table_for place do
+                row :id
+                row :name
+                row :description
+                row :place_category
+                row :status do 
+                  status_tag place.status
+                end
+                row :latlong
+                row :website
+                row :contact_number
+                row :created_at
+                row :updated_at
+              end
             end
-            row :latlong
-            row :website
-            row :contact_number
-            row :created_at
-            row :updated_at
+            if place.image.attached? 
+              column do
+                image_tag place.image, style: 'width: 100%'
+              end
+            end
           end
         end
-        if place.image.attached? 
-          column do
-            image_tag place.image, style: 'width: 100%'
+        tab "Reviews" do
+          resource.reviews.each do |review|
+            br
+
+            div do
+              a review.user.name, href: admin_user_path(review.user) 
+              render 'rating_star', rating: review.rating
+              div do
+                para review.content
+              end
+            end
           end
         end
       end
     end
+    
   end
 end
